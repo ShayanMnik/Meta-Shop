@@ -6,7 +6,7 @@ type TButton = ComponentProps<"button"> & {
   variant?: TVariant
 }
 
-function checkVariant(variant: TVariant) {
+function checkVariant(variant: TVariant | undefined) {
   if (variant === "cyan") {
     return { backgroundColor: "cyan", color: "#1b1b1b" }
   }

@@ -26,7 +26,7 @@ function CartItem({ children, variant }: TChildren) {
                         <Button className='px-1 py-1 rounded text-2xl cursor-pointer active:shadow'>
                             <img src={add} alt="add" />
                         </Button>
-                        <p className='px-2 py-1 flex items-center justify-center text-center text-base'>{12}</p>
+                        <p className='px-2 py-1 flex items-center justify-center text-center text-base'>{1}</p>
                         <Button className='px-1 py-1 rounded text-2xl cursor-pointer active:shadow'>
                             <img src={remove} alt="remove" />
                         </Button>
