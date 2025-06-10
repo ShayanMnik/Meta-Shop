@@ -12,3 +12,11 @@ export async function getProducts() {
 
     return data
 }
+
+
+export async function getProduct(id : string | number){
+
+    const { data } = await client(`/products/${id}`)
+
+    return data
+}

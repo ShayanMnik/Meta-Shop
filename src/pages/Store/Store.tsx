@@ -7,7 +7,7 @@ import type { Products } from '../../types/servers'
 
 function Store() {
 
-    const [products, setProducts] = useState<Products>([])
+    const [products, setProducts] = useState<Products[]>([])
 
     useEffect(() => {
         getProducts().then((res) => {
@@ -20,7 +20,7 @@ function Store() {
             <div className='grid grid-cols-4 gap-7 mb-80 mt-12'>
                 {
                     products.map((items: Products) => (
-                        <Link to={`/product/${items.id}`}>
+                        <Link key={items.id} to={`/product/${items.id}`}>
                             <ProductItem {...items} />
                         </Link>
                     ))
