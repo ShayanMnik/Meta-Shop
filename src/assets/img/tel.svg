@@ -1,0 +1,9 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="24" height="24">
+	<title>telegram (1)</title>
+	<defs>
+		<image  width="16" height="16" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAAXNSR0IB2cksfwAAANJQTFRFAAAAT09NYWFebm5rf397bm5rYWFeTk5LRkZEaGhliIiEZmZjRUVDRUVDcnJvRUVDY2NgYmJfTU1LgIB8eHh0TExKY2NgUlJPUFBOd3dzbW1qUFBNRERCR0dFVlZTdXVygoJ/hISAYGBdSUlHSEhGW1tYRkZEX19cgYF+V1dVRkZEXFxaZ2dkbGxpgYF9dHRxcnJufX16e3t4RERCe3t3X19cRkZES0tJUlJQhoaCSUlGZWViYGBec3NwRUVDRkZEaGhlT09MaWlmhYWBaGhkTk5MqQ5foQAAAEZ0Uk5TAH3W8f7w1XAX6P/iFhL2DtzZaP76YtqPhvrvgAYqp/j//9JBOsEf0P6vG8bl7f749f38BPzPHVST/zzh1PcQGed36P/mcTdPhQ8AAAC/SURBVHicTY/NCwFRFMXPiTJDalLIZgwmpDSSj4WF/N12UqImC1/lY2N2UhpJQxbuDBO/xX333Nd751xCoOCXh98DiqgP5E0GSb4QEqVLaE/8iF2Y8kKh8g4kmLl9ZDziqVfAY871pSYejn4G0jROyJIHk9xWHEBn9Yj8pib3LuoHwKS1A8rywAZaa9+4vQr+fBnbzlLOAruLr4s5VQFLUvfmf8GaY0Jp27/ojZHs1efsq4t7D8GiA3KCbIlD6d9bIisQe2ZKoAAAAABJRU5ErkJggg=="/>
+	</defs>
+	<style>
+	</style>
+	<use  href="#img1" x="0" y="0"/>
+</svg>

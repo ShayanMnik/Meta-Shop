@@ -5,4 +5,8 @@ export interface Products {
   desc: string
   imageUrl: string
   rating: number
+  brand: string
+  model: string
+  category: string
+  discount: number 
 }

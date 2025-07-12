@@ -6,10 +6,6 @@ export default {
   ],
   theme: {
     extend: {
-      backgroundColor: {
-        'sorme':'#4e8397',
-        'sorkh':'#de0000',
-      }
     },
   },
   plugins: [],}

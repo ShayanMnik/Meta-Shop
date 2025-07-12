@@ -1,11 +1,139 @@
 @import "tailwindcss";
 
+
 @font-face {
   font-family: vazir;
   src: url(assets/fonts/Vazirmatn-VariableFont_wght.ttf);
 }
 
 
-*{
+* {
   font-family: vazir;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.xbtn{
+  width: 25px;
+  height: 25px;
+}
+
+.xbtn:active {
+  scale: 1.2;
+  transition-duration: 5ms;
+  transition-timing-function: ease-in-out;
+  scale: 0.8;
+}
+
+.ellipsis-multiline {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  /* change to desired number of lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ellipsis-multiline-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  /* change to desired number of lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  direction: ltr;
+}
+.ellipsis-multiline-9 {
+  display: -webkit-box;
+  -webkit-line-clamp: 9;
+  /* change to desired number of lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* .swiper-button-next,
+.swiper-button-prev {
+  width: 30px!important;
+  height: 30px!important;
+  color: #A4AAB2 !important ;
+  padding: 0px 30px!important;
+  border-radius: 50%!important;
+  transition: 0.3s!important;
+  font-size: 20px!important;
+  display: flex!important;
+  align-items: center;
+  justify-content: center;
+} */
+
+.shayanSlider::after {
+  display: none !important;
+}
+
+.swiper-button-disabled {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.shayanGroup:hover {
+  .swiper-button-disabled {
+    opacity: 0.35 !important;
+    pointer-events: none !important;
+  }
+}
+
+.sw-btn-2 {
+  transition-duration: 1.5s !important;
+}
+
+
+
+.swiper-button-next,
+.swiper-button-prev {
+  width: 35px !important;
+  height: 35px !important;
+  border-radius: 9999px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: red;
+  transition: 20ms !important;
+
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 16px !important;
+  color: #fff !important;
+  opacity: 1 !important;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  /* background-color: #cccccc81 !important; */
+  opacity: 0.6 !important;
+
+  &::after {
+    color: #1b1b1b !important;
+  }
+}
+
+.swiper-pagination-bullet {
+  background-color: #fff !important;
+  width: 8px !important;
+  height: 8px !important;
+  margin-bottom: 5px !important;
+  opacity: 1 !important;
+  transition: 20ms;
+
+  &:hover {
+    background-color: #cccccc81 !important;
+  }
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #1b1b1b !important;
+
+  &:hover {
+    background-color: #1b1b1b !important;
+  }
 }
