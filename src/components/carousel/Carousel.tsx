@@ -31,7 +31,7 @@ const slides: Slide[] = [
     },
 ];
 
-const Carousel: React.FC = (id) => {
+const Carousel: React.FC = () => {
     return (
         <div className='md:w-[1000px] md:h-[300px] mx-auto rounded-[8px]'>
             <Swiper

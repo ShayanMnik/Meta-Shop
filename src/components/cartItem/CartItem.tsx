@@ -23,7 +23,6 @@ function CartItem({ id, count }: ICartItem) {
 
     const [product, setProduct] = useState<Products>()
     const [selectedColor, setSelectedColor] = useState<string | null>(null);
-    const [status, setStatus] = useState(false)
 
     useEffect(() => {
         getNewProduct(id).then((res) => {

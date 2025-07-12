@@ -21,7 +21,7 @@ export async function getNewProduct(id:number | string) {
     return data
 }
 
-export async function getProducts(id: number) {
+export async function getProducts() {
     
     const { data } = await baseURL("/products")
 
