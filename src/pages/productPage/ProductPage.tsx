@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import  { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom';
 import Container from '../../components/container/Container';
 import Button from '../../components/button/Button';
 import type { Products } from '../../types/servers';
-import { getNewProduct, getProduct } from '../../services/api';
+import { getNewProduct } from '../../services/api';
 import add from '../../assets/img/Add.svg'
 import remove from '../../assets/img/remove.svg'
 import { useShoppingCartContext } from '../../context/ShoppingCartContext';

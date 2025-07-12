@@ -5,9 +5,7 @@ import type { Products } from "../../types/servers";
 import Container from "../container/Container";
 import ProductCard from "../ProductCard/ProductCard";
 import { Link } from "react-router-dom";
-import arrLeft from "../../assets/img/arrLeft.svg"
-import arrLeftPng from "../../assets/img/arrLeft.png"
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 
 

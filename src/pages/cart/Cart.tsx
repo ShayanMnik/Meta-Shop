@@ -8,7 +8,6 @@ import type { Products } from '../../types/servers';
 import { getNewProducts } from '../../services/api';
 import greenD from "../../assets/img/greenDollar.svg"
 import grayD from "../../assets/img/grayDollar.svg"
-import emptyCart from "../../assets/img/emptyCart.png"
 function Cart() {
 
   const { cartItems, allProductCount } = useShoppingCartContext()

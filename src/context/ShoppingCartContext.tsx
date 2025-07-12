@@ -1,8 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
-import { getNewProducts, login } from "../services/api";
+import { login } from "../services/api";
 import { useNavigate } from "react-router-dom";
-import type { Products } from "../types/servers";
 
 interface IShoppingCartProvider {
     children: React.ReactNode

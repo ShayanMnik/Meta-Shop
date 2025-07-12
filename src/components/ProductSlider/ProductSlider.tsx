@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { Swiper, SwiperSlide } from "swiper/react"
 import 'swiper/swiper-bundle.css';
-import { getAllNewProducts, getAllProducts, getProduct } from "../../services/api"
+import { getAllNewProducts } from "../../services/api"
 import ProductCard from "../ProductCard/ProductCard"
 import Container from "../container/Container";
 import { Navigation } from 'swiper/modules';

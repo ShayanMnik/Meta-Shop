@@ -1,4 +1,4 @@
-import React, { Children, type ComponentProps } from 'react'
+import {  type ComponentProps } from 'react'
 
 type TVariant = "cyan" | "blue" | "green" | "yellow" | "red"
 

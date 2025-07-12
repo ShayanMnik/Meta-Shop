@@ -1,4 +1,3 @@
-import React from 'react'
 import TestCars from '../../components/testCars/TestCars';
 import Container from '../../components/container/Container';
 import ProductSlider from '../../components/ProductSlider/ProductSlider';

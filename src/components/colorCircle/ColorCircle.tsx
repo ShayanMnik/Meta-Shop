@@ -1,4 +1,4 @@
-import React, { type ComponentProps } from 'react'
+import { type ComponentProps } from 'react'
 
 type TVariant = 'red' | 'blue' | 'green' | 'yellow' | 'black'
 

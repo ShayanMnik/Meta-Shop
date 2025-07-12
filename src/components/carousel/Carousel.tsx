@@ -3,11 +3,7 @@ import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import { Autoplay } from 'swiper/modules';
-import slider from "../../assets/img/slider.jpg"
 // Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
 import { Link } from 'react-router-dom';
 
 // Optional: Define a type if you're working with dynamic data

@@ -7,7 +7,6 @@ import type { Products } from '../../types/servers'
 import { useShoppingCartContext } from '../../context/ShoppingCartContext'
 import { Link } from 'react-router-dom'
 import redTrashCan from "../../assets/img/redTrashCan.svg"
-import { DollarSign } from 'lucide-react'
 import dollar from "../../assets/img/dollar.svg"
 
 interface ICartItem {
