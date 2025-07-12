@@ -13,8 +13,7 @@ interface ICartItem {
     id: number;
     count: number;
     key: number;
-    handleIncreaseItemCount: (id: number) => void;
-    handeDecreaseItemCount: (id: number) => void;
+
 
 }
 

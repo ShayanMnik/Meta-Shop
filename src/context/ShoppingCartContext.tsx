@@ -14,9 +14,8 @@ interface cartItem {
 
 interface IShoppingCartContext {
     cartItems: cartItem[],
-    handleIncreaseItemCount: (id: number, count: number) => void;
-    handleIncreaseItemCount2: (id: number, count: number) => void;
-    handeDecreaseItemCount: (id: number, count: number) => void;
+    handleIncreaseItemCount: (id: number) => void;
+    handeDecreaseItemCount: (id: number) => void;
     getProductCount: (id: number) => number;
     removeProduct: (id: number) => void;
     allProductCount: number;
@@ -45,31 +44,6 @@ export function ShoppingCartProvider({ children }: IShoppingCartProvider) {
 
     const handleIncreaseItemCount = (id: number) => {
 
-
-        setCartItems((currentItems) => {
-
-            let selectedItem = currentItems.find((item) => item.id == id);
-            if (selectedItem == null) {
-                return [...currentItems, { id: id, count: 1 }]
-            }
-            else {
-                return currentItems.map(item => {
-                    if (item.id == id) {
-                        return { ...item, count: item.count + 1 }
-                    }
-                    else {
-                        return item;
-                    }
-                }
-                )
-            }
-
-        })
-
-    }
-    const handleIncreaseItemCount2 = (e: React.MouseEvent<HTMLButtonElement>, id: number) => {
-        e.preventDefault();
-        e.stopPropagation();
 
         setCartItems((currentItems) => {
 
@@ -124,6 +98,7 @@ export function ShoppingCartProvider({ children }: IShoppingCartProvider) {
                 return currentItems.filter((item) => item.id !== id)
 
             }
+            return currentItems
         })
     }
     const allProductCount = cartItems.reduce((totalCount, item) => totalCount + item.count, 0)
@@ -162,7 +137,7 @@ export function ShoppingCartProvider({ children }: IShoppingCartProvider) {
 
 
     return (
-        <ShoppingCartContext.Provider value={{ cartItems, handleIncreaseItemCount, handleIncreaseItemCount2, handeDecreaseItemCount, getProductCount, removeProduct, allProductCount, isLogin, handleLogin, handleLogOut }}>
+        <ShoppingCartContext.Provider value={{ cartItems, handleIncreaseItemCount, handeDecreaseItemCount, getProductCount, removeProduct, allProductCount, isLogin, handleLogin, handleLogOut }}>
             {children}
         </ShoppingCartContext.Provider>
     )

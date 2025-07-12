@@ -15,7 +15,7 @@ type ProductsTypes = Products
 
 function ProductItem({ ...items }: ProductsTypes) {
   const params = useParams<{ id: string }>();
-  const { handeDecreaseItemCount, handleIncreaseItemCount, handleIncreaseItemCount2, getProductCount, removeProduct } = useShoppingCartContext()
+  const { handeDecreaseItemCount, handleIncreaseItemCount , getProductCount, removeProduct } = useShoppingCartContext()
 
   return (
     <div className="w-full overflow-hidden h-full shadow rounded-lg bg-white">
@@ -37,13 +37,13 @@ function ProductItem({ ...items }: ProductsTypes) {
         }
         {
           getProductCount(parseInt(params.id as string)) === 0 ?
-            <Button onClick={() => handleIncreaseItemCount2(parseInt(params.id as string))} className='w-[100px] h-9 text-gray-800 bg-gray-200 rounded text-[13px] shadow-md active:bg-gray-300'>
+            <Button onClick={() => handleIncreaseItemCount(parseInt(params.id as string))} className='w-[100px] h-9 text-gray-800 bg-gray-200 rounded text-[13px] shadow-md active:bg-gray-300'>
               Add to cart
             </Button>
             :
             <div className='flex flex-wrap items-center justify-center gap-3'>
               <div className='w-full flex items-center justify-between gap-1  mt-[40px]'>
-                <Button onClick={() => handleIncreaseItemCount2(parseInt(params.id as string))} className='px-1 py-1 rounded text-2xl cursor-pointer shadow text-gray-800 bg-gray-200 active:bg-gray-300'>
+                <Button onClick={() => handleIncreaseItemCount(parseInt(params.id as string))} className='px-1 py-1 rounded text-2xl cursor-pointer shadow text-gray-800 bg-gray-200 active:bg-gray-300'>
                   <img className='w-[20px] h-[20px]' src={add} alt="add" />
                 </Button>
                 <p className='px-2 py-1 flex items-center justify-center text-center text-lg'>

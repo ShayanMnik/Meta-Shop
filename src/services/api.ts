@@ -8,7 +8,7 @@ const baseUrl2 = axios.create({
     baseURL:"http://localhost:7003"
 })
 
-export async function getNewProducts(id:number | string) {
+export async function getNewProducts() {
 
     const { data } = await baseUrl2(`/products`)
 

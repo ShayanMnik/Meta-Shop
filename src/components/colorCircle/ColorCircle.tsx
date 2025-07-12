@@ -6,9 +6,9 @@ type TCircle = ComponentProps<"div">& {
     variant? : TVariant 
 }
 
-function ColorCircle({variant} :TCircle) {
+function ColorCircle({} :TCircle) {
   return (
-    <div style={{...circleColor(variant)}} className='w-5 h-5 rounded-full border mt-1'></div>
+    <div style={{...circleColor}} className='w-5 h-5 rounded-full border mt-1'></div>
   )
 }
 

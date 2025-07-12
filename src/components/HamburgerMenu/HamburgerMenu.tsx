@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import HamburgerMenuIcon from "../../assets/img/hamburgerMenu.svg"
 import grayX from "../../assets/img/grayX.svg"
 
-function HamburgerMenu(props: any) {
+function HamburgerMenu() {
 
     const [isOpen, setIsOpen] = useState(false)
 
