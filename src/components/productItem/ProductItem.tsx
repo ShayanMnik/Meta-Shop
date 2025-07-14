@@ -1,4 +1,4 @@
-import type { Products } from "../../types/servers"
+import type { Product } from "../../types/servers"
 import dollar from "../../assets/img/dollar.svg"
 import Button from "../button/Button"
 import { Link, useParams } from "react-router-dom"
@@ -9,7 +9,7 @@ import TrashCan from '../../assets/img/traschCan.svg'
 
 
 
-type ProductsTypes = Products
+type ProductsTypes = Product
 
 
 
@@ -27,7 +27,7 @@ function ProductItem({ ...items }: ProductsTypes) {
       </div>
       <div className="flex flex-row-reverse items-center justify-between content-start px-4 md:px-7  h-12">
         {
-          items.discount > 0 ? <>
+          items.discount !== undefined ? <>
             <div className="flex flex-wrap">
               <p className="flex items-center justify-end text-[13px] h-[15px] w-full">{items.price - items.discount}<img src={dollar} className="w-[15px] h-[15px]" alt="dollar-sign"></img></p>
               <p className="w-full h-[15px] flex items-center justify-end text-[13px] line-through text-[#656565] pl-[15px]">{items.price}</p>

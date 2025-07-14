@@ -2,23 +2,33 @@ import Container from '../../components/container/Container';
 import CartItem from '../../components/cartItem/CartItem';
 import Button from '../../components/button/Button';
 import { useShoppingCartContext } from '../../context/ShoppingCartContext';
-import dollar from "../../assets/img/dollar.svg"
+import dollar from "../../assets/img/dollar.svg";
 import { useEffect, useState } from 'react';
 import type { Products } from '../../types/servers';
-import { getNewProducts } from '../../services/api';
-import greenD from "../../assets/img/greenDollar.svg"
-import grayD from "../../assets/img/grayDollar.svg"
+import { getNewProduct } from '../../services/api';
+import greenD from "../../assets/img/greenDollar.svg";
+import grayD from "../../assets/img/grayDollar.svg";
+
 function Cart() {
+  const { cartItems, allProductCount } = useShoppingCartContext();
 
-  const { cartItems, allProductCount } = useShoppingCartContext()
-
-  const [products, setProducts] = useState<Products[]>([])
+  const [products, setProducts] = useState<Products[]>([]);
 
   useEffect(() => {
-    getNewProducts().then((res) => {
-      setProducts(res)
+    getNewProduct().then((res: any) => {
+      if (Array.isArray(res)) {
+        const normalized = res.map(p => ({ ...p, id: String(p.id) }));
+        setProducts(normalized);
+      } else {
+        setProducts([]);
+        console.warn("getNewProduct returned non-array:", res);
+      }
+    }).catch((err) => {
+      setProducts([]);
+      console.error("Error fetching products:", err);
     });
   }, []);
+  console.log(cartItems);
 
   const { totalPrice, totalDiscount, finalPrice } = cartItems.reduce(
     (acc, cartItem) => {
@@ -37,55 +47,68 @@ function Cart() {
     },
     { totalPrice: 0, totalDiscount: 0, finalPrice: 0 }
   );
-
+  
   return (
-    <div className='w-full px-12 py-8'>
+    <div className='w-full px-4 py-8'>
       <Container>
-        <div className='flex justify-center gap-4 flex-wrap min-h-[260px]  md:grid md:grid-cols-12'>
+        {/* حالت flex در md به بالا برای نمایش کنار هم */}
+        <div className='flex flex-col md:flex-row gap-6 items-start'>
 
-          <div className={`flex md:col-span-8 w-full h-[270px] md:h-[fit] rounded-[16px]`}>
-            <div className='w-full flex flex-col items-center rounded-[16px] mb-4 gap-3'>
-              {
-                cartItems.map((item) => (
-                  <CartItem key={item.id} id={item.id} count={item.count} />
-                ))
-              }
-            </div>
+          {/* لیست آیتم‌ها */}
+          <div className='flex flex-col gap-4 w-full md:w-8/12'>
+            {cartItems.length > 0 ? (
+              cartItems.map((item) => (
+                <CartItem key={item.id} id={item.id} count={item.count} />
+              ))
+            ) : (
+              <p className='text-center text-gray-500 py-10'>سبد خرید شما خالی است.</p>
+            )}
           </div>
-          <div className={`flex md:col-span-4 ${allProductCount === 0 ? "md:col-start-9" : ""} w-full h-56 md:h-48 px-7 py-4 bg-white shadow rounded-[16px]`}>
-            <div className='w-full h-[100%] flex flex-wrap gap-3'>
+
+          {/* خلاصه فاکتور */}
+          <div className='w-full h-52 md:w-4/12 px-7 py-4 bg-white shadow rounded-[16px]'>
+            <div className='w-full flex flex-wrap gap-3'>
               <div className='w-full flex items-center justify-between py-1 px-2 text-[#6D7177]'>
-                <p className='flex flex-row-reverse items-center justify-center text-[13px] md:text-[11px] lg:text-[15px]'>قیمت کالاها ({`${allProductCount}`})</p>
-                <div className='flex flex-row-reverse items-center justify-start w-[100px] h-full text-[11px] md:text-[9px] lg:text-[11px]'>
-                  <img className=' h-full' src={grayD} alt="" />
-                  <p className='w-[50px] h-full flex items-center justify-end text-[12px] '>{totalPrice.toLocaleString()}</p>
+                <p className='text-[13px] md:text-[11px] lg:text-[15px]'>
+                  قیمت کالاها ({`${allProductCount}`})
+                </p>
+                <div className='flex items-center text-[11px]'>
+                  <p className='w-[50px] text-left text-[12px]'>
+                    {totalPrice.toLocaleString()}
+                  </p>
+                  <img className='h-full' src={grayD} alt='' />
                 </div>
               </div>
+
               <div className='w-full flex items-center justify-between py-1 px-2'>
-                <p className='flex flex-row-reverse items-center justify-center text-[13px] md:text-[11px] lg:text-[15px]'>جمع سبد خرید</p>
-                <div className='flex flex-row-reverse items-center justify-start w-[100px] h-full text-[11px] md:text-[9px] lg:text-[11px]'>
-                  <img className=' h-full' src={dollar} alt="" />
-                  <p className='w-[50px] h-full flex items-center justify-end text-[12px] '>{finalPrice.toLocaleString()}</p>
+                <p className='text-[13px] md:text-[11px] lg:text-[15px]'>جمع سبد خرید</p>
+                <div className='flex items-center text-[11px]'>
+                  <p className='w-[50px] text-left text-[12px]'>
+                    {finalPrice.toLocaleString()}
+                  </p>
+                  <img className='h-full' src={dollar} alt='' />
                 </div>
               </div>
+
               <div className='w-full flex items-center justify-between py-1 px-2 text-[#3da743]'>
-                <p className='flex flex-row-reverse items-center justify-center text-[13px] md:text-[11px] lg:text-[15px]'>سود شما از خرید</p>
-                <div className='flex flex-row-reverse items-center justify-start w-[100px] h-full text-[11px] md:text-[9px] lg:text-[11px]'>
-                  <img className=' h-full' src={greenD} alt="" />
-                  <p className='w-[50px] h-full flex items-center justify-end text-[12px] '>{totalDiscount.toLocaleString()}</p>
+                <p className='text-[13px] md:text-[11px] lg:text-[15px]'>سود شما از خرید</p>
+                <div className='flex items-center text-[11px]'>
+                  <p className='w-[50px] text-left text-[12px]'>
+                    {totalDiscount.toLocaleString()}
+                  </p>
+                  <img className='h-full' src={greenD} alt='' />
                 </div>
               </div>
-              <Button className='w-full flex items-center justify-center mx-2 cursor-pointer bg-[#0381FB] text-white hover:bg-[#026dd4] active:bg-[#0255a6] md:text-[12px] lg:text-[14px] duration-200 rounded-[9px] h-[35px]'>نهایی کردن سفارش</Button>
+
+              <Button className='w-full mt-2 bg-[#0381FB] text-white hover:bg-[#026dd4] active:bg-[#0255a6] text-[13px] md:text-[12px] lg:text-[14px] rounded-[9px] h-[35px]'>
+                نهایی کردن سفارش
+              </Button>
             </div>
           </div>
         </div>
       </Container>
     </div>
-
-  )
+  );
 }
 
 export default Cart;
-
-
-

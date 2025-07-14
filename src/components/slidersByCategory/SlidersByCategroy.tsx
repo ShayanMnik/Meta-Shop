@@ -23,7 +23,7 @@ function SlidersByCategroy() {
 
 
     useEffect(() => {
-        getAllNewProducts().then((res) => {
+        getAllNewProducts().then((res:any) => {
             setProducts(res)
         });
     }, []);
@@ -62,7 +62,7 @@ function SlidersByCategroy() {
                     >
                         {getProductsByCategory(category).map(product => (
                             <SwiperSlide key={product.id}>
-                                <ProductCard product={product} />
+                                <ProductCard product={{ ...product, id: String(product.id) }} />
                             </SwiperSlide>
                         ))}
                     </Swiper>

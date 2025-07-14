@@ -40,8 +40,6 @@ export function ShoppingCartProvider({ children }: IShoppingCartProvider) {
 
     const [cartItems, setCartItems] = useLocalStorage<cartItem[]>("cartItems", [])
 
-    console.log(cartItems);
-
     const handleIncreaseItemCount = (id: number) => {
 
 

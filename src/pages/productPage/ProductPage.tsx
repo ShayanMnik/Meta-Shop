@@ -18,7 +18,7 @@ function ProductPage() {
 
 
     useEffect(() => {
-        getNewProduct(params.id as string).then((res) => {
+        getNewProduct(params.id as string).then((res:any) => {
             setProduct(res)
         })
     })

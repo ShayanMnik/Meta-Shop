@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react"
 import { Swiper, SwiperSlide } from "swiper/react"
 import 'swiper/swiper-bundle.css';
-import { getAllNewProducts } from "../../services/api"
 import ProductCard from "../ProductCard/ProductCard"
 import Container from "../container/Container";
 import { Navigation } from 'swiper/modules';
@@ -10,17 +9,19 @@ import arrLeft from "../../assets/img/arrLeft.png"
 import arrRight from "../../assets/img/arrRight.png"
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react"
-
+import { getProducts } from "../../services/api";
+import type { Product } from "../../types/servers";
 
 
 function ProductSlider() {
-    const [products, setProducts] = useState([])
+    
     const prevRef = useRef<HTMLButtonElement | null>(null);
     const nextRef = useRef<HTMLButtonElement | null>(null);
 
+    const [products, setProducts] = useState<Product[]>([])
     useEffect(() => {
-        getAllNewProducts().then((res) => {
-            setProducts(res)
+        getProducts().then((res) => {
+            setProducts(res.products)
         });
     }, []);
 
@@ -70,8 +71,8 @@ function ProductSlider() {
                     }}
                 >
                     {products.map(product => (
-                        <SwiperSlide className="flex items-center justify-center h-full" key={product}>
-                            <ProductCard product={product} />
+                        <SwiperSlide className="flex items-center justify-center h-full" key={String(product.id)}>
+                            <ProductCard product={{ ...product, id: String(product.id) }} />
                         </SwiperSlide>
                     ))}
                 </Swiper>

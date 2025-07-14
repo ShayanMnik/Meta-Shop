@@ -25,7 +25,7 @@ function CartItem({ id, count }: ICartItem) {
     const [selectedColor, setSelectedColor] = useState<string | null>(null);
 
     useEffect(() => {
-        getNewProduct(id).then((res) => {
+        getNewProduct(id).then((res:any) => {
             setProduct(res)
         });
     }, []);
@@ -34,24 +34,24 @@ function CartItem({ id, count }: ICartItem) {
 
     return (
 
-        <div className='w-full h-56 md:h-48 grid grid-cols-5 p-4  shadow rounded-[16px] bg-white'>
+        <div className='w-full h-48 md:h-60 grid grid-cols-5 p-4  shadow rounded-[16px] bg-white'>
             <Link className='col-span-2 object-contain flex items-center justify-center' to={`/product/${id}`}>
 
                 <img className='w-[130px]' src={product?.imageUrl} alt="1" />
 
             </Link>
 
-            <div className='w-full col-span-3 px-6 pb-6 flex flex-wrap gap-4'>
+            <div className='w-full col-span-3 px-6 pb-6 flex items-start flex-wrap gap-2'>
 
                 <Link to={`/product/${id}`} dir='ltr' className='w-full ellipsis-multiline-3 md:h-auto flex text-left items-center text-[14px] lg:text-[16px]'>{product?.title}</Link>
                 <div className='w-full flex items-center justify-end'>
                     <div className='flex items-center justify-center'>
-                        <p className='flex items-center justify-center pt-1'>1</p>
+                        <p className='flex items-center justify-center pt-1'>{product?.price}</p>
                         <img className='ml-5' src={dollar} alt="" />
                     </div>
                     <div dir='ltr'>price :</div>
                 </div>
-                <div className='w-full flex flex-row-reverse items-center justify-end gap-1 text-[13px] lg:text-xl'>
+                <div className='w-full flex flex-row-reverse items-center justify-start gap-1 text-[13px] lg:text-xl'>
                     <div
                         onClick={(e) => {
                             e.stopPropagation();
@@ -95,7 +95,7 @@ function CartItem({ id, count }: ICartItem) {
 
                     }} className='md:w-[17px] md:h-[17px] w-[15px] h-[14px] cursor-pointer rounded-[1000px] text-[13px] border-[0.5px] border-[#1b1b1b]/30 bg-black'></div>
                     {
-                        selectedColor && <div className='text-[12px]'>{selectedColor}</div>
+                        selectedColor && <div className='text-[15px] ml-3'>{selectedColor}</div>
                     }
                 </div>
                 <div className='w-full flex flex-row-reverse items-center justify-between'>
